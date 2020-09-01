@@ -24,14 +24,10 @@ jobs:
     - name: Clone source
       run: |
         curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/v1.2.0/cloudflare-scanner_1.2.0_linux_arm64.tar.gz" | tar -zx
-        
-    - name: build and test code
-      run: DOCKER_BUILDKIT=1 make -f all
 
     - name: build and push image
       uses: docker/build-push-action@v1
-      env:
-        DOCKER_BUILDKIT: 1
+
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
