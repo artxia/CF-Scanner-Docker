@@ -25,10 +25,10 @@ jobs:
       run: |
         git clone https://github.com/gh-tt/cloudflare-scanner
         sudo mv Dockerfile ${GITHUB_WORKSPACE}/cloudflare-scanner
-        cd cloudflare-scanner
+        cd ${GITHUB_WORKSPACE}/cloudflare-scanner
         
     - name: build and test code
-      run: DOCKER_BUILDKIT=1 make -f ${GITHUB_WORKSPACE}/cloudflare-scanner/Dockerfile all
+      run: DOCKER_BUILDKIT=1 make -f Dockerfile all
 
     - name: build and push image
       uses: docker/build-push-action@v1
