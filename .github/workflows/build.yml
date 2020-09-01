@@ -23,7 +23,7 @@ jobs:
 
     - name: Clone source
       run: |
-        curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/v1.2.0/cloudflare-scanner_1.2.0_linux_arm64.tar.gz" | tar -zx
+        curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/v1.2.0/cloudflare-scanner_1.2.0_linux_64-bit.tar.gz" | tar -zx
 
     - name: build and push image
       uses: docker/build-push-action@v1
@@ -33,4 +33,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: artxia/cf-scanner-docker
         tag_with_ref: true
+        add_git_labels: true
         push: ${{ startsWith(github.ref, 'refs/tags/') }}
