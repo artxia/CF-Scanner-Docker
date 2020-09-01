@@ -1,5 +1,6 @@
 FROM scratch
 
+
 WORKDIR .
 ADD cloudflare-scanner .
 ADD ip.txt .
