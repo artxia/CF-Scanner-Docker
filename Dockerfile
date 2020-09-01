@@ -1,6 +1,4 @@
 FROM golang:latest
-RUN mkdir /app 
-ADD . /app/ 
-WORKDIR /app 
+WORKDIR /cloudflare-scanner 
 RUN go build -o main . 
-CMD ["/app/main"]
+ENTRYPOINT ["./cloudflare-scanner"]
