@@ -1,7 +1,9 @@
-FROM golang:latest
+FROM scratch
 
-WORKDIR /cloudflare-scanner
+WORKDIR .
+ADD cloudflare-scanner .
+ADD ip.txt .
+ADD config-example.yaml .
 
-RUN go build -o main .
-
-ENTRYPOINT ["./cloudflare-scanner", "-c", "/cloudflare-scanner/config.yaml"]
+EXPOSE 8082
+CMD ["./cloudflare-scanner","-config=./config.yaml"]
