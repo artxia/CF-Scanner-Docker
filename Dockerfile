@@ -3,8 +3,9 @@ FROM scratch
 
 WORKDIR .
 ADD cloudflare-scanner .
-ADD ip.txt config/
-ADD config-example.yaml config/
+ADD ip.txt .
+ADD config-example.yaml .
+ADD start.sh .
 
-
-CMD ["./cloudflare-scanner","-config=/config/config.yaml"]
+ENV INTERVAL="86400"
+CMD /bin/sh /start.sh
