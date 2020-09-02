@@ -8,4 +8,4 @@ ADD config-example.yaml .
 ADD start.sh .
 
 ENV INTERVAL="86400"
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["/start.sh"]
