@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cloudflare-scanner
+./cloudflare-scanner
 
 export INTERVAL=$(echo "$INTERVAL" | sed 's/[A-Za-z]//g')
 sleep "$INTERVAL"
