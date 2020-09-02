@@ -1,4 +1,4 @@
-FROM scratch
+FROM radial/busyboxplus:curl
 
 
 WORKDIR .
@@ -8,4 +8,4 @@ ADD config-example.yaml .
 ADD start.sh .
 
 ENV INTERVAL="86400"
-ENTRYPOINT ["/start.sh"]
+CMD /bin/sh /start.sh
