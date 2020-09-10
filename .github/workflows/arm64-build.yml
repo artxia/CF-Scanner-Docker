@@ -41,5 +41,5 @@ jobs:
       with:
         builder: ${{ steps.buildx.outputs.name }}
         platforms: linux/arm64
-        push: true
+        push: false
         tags: artxia/cf-scanner-docker:latest-arm64
