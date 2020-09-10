@@ -10,7 +10,7 @@
   -v /config/config.yaml:/config.yaml \
   -v /config/ip.txt:/ip.txt \
   -v /config/result.txt:/result.txt \
-  artxia/cf-scanner-docker:v0.1.0
+  artxia/cf-scanner-docker
  ```
  INTERVAL 变量是再次运行的时间间隔，单位s，默认86400s,24小时
 
