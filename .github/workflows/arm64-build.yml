@@ -1,7 +1,7 @@
 name: Auto Build arm64
 
 on:
-  push:
+#  push:
 #    branches:
 #      - master
 #    tags:
