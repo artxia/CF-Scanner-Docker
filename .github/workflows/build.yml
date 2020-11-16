@@ -24,7 +24,7 @@ jobs:
     - name: Clone source
       run: |
         OVERLAY_VERSION=$(curl -sX GET "https://api.github.com/repos/gh-tt/cloudflare-scanner/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]')
-        curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/${OVERLAY_VERSION}/cloudflare-scanner_${OVERLAY_VERSION}_linux_64-bit.tar.gz" | tar -zx
+        curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/$OVERLAY_VERSION/cloudflare-scanner_$OVERLAY_VERSION_linux_64-bit.tar.gz" | tar -zx
 
     - name: Login to DockerHub
       uses: docker/login-action@v1 
@@ -38,4 +38,4 @@ jobs:
         push: true
         tags: |
           artxia/cf-scanner-docker:latest
-          artxia/cf-scanner-docker:${OVERLAY_VERSION}
+          artxia/cf-scanner-docker:$OVERLAY_VERSION
