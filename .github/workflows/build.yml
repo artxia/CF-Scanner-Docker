@@ -23,7 +23,7 @@ jobs:
 
     - name: Clone source
       run: |
-        OVERLAY_VERSION=$(curl -sX GET "https://api.github.com/repos/just-containers/s6-overlay/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]')
+        OVERLAY_VERSION=$(curl -sX GET "https://api.github.com/repos/gh-tt/cloudflare-scanner/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]')
         curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/${OVERLAY_VERSION}/cloudflare-scanner_${OVERLAY_VERSION}_linux_64-bit.tar.gz" | tar -zx
 
     - name: Login to DockerHub
