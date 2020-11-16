@@ -23,7 +23,9 @@ jobs:
 
     - name: Clone source
       run: |
-        OVERLAY_VERSION=$(curl -sX GET "https://api.github.com/repos/gh-tt/cloudflare-scanner/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]')
+        echo 'OVERLAY_VERSION<<EOF' >> $GITHUB_ENV
+        curl -sX GET "https://api.github.com/repos/gh-tt/cloudflare-scanner/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]'$GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
         curl -L "https://github.com/gh-tt/cloudflare-scanner/releases/download/${OVERLAY_VERSION}/cloudflare-scanner_${OVERLAY_VERSION#v}_linux_64-bit.tar.gz" | tar -zx
 
     - name: Login to DockerHub
